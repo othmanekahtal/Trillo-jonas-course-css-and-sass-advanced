@@ -1,0 +1,112 @@
+.logo-box {
+  margin-left: 2rem;
+  height: 3.25rem;
+  img {
+    height: 100%;
+  }
+}
+
+.search-box {
+  flex-basis: 40%;
+  flex-shrink: 0;
+  flex-shrink: 0;
+  text-align: center;
+  .search__input {
+    outline: none;
+    border: none;
+    padding: 1rem;
+    background-color: var(--color-Grey-light-2);
+    border-radius: 2rem;
+    width: 90%;
+    transition: all 0.35s;
+    &:focus {
+      width: 100%;
+    }
+  }
+}
+.user-icon-box {
+  display: flex;
+  align-items: center;
+  .icon-box__item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    // had align self mohima bax t9add lina height automatically
+    align-self: stretch;
+    padding: 2rem 1.5rem;
+    position: relative;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: var(--color-Grey-light-3);
+    }
+    .icon-box {
+      &--notifications {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: var(--color-primary);
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 1rem;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 1.5rem;
+      }
+      &--avatar {
+        height: 3.5rem;
+        img {
+          height: 100%;
+          border-radius: 50%;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.hotel-info__primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: var(--border-grey-light);
+  .hotel__title {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin-left: 1.5rem;
+  }
+  .hotel__loca-geo {
+    display: flex;
+    align-items: center;
+  }
+  .hotel__location {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    cursor: pointer;
+    padding-bottom: 2px;
+    border-bottom: 1px solid;
+    transition: all 0.15s;
+    margin-right: 2rem;
+    &:hover {
+      color: black;
+    }
+  }
+  .hotel__vote {
+    align-self: stretch;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    &--review {
+      font-size: 2.2rem;
+      font-weight: 200;
+    }
+    &--members {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+  }
+}

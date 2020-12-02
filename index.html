@@ -92,9 +92,24 @@
             </aside>
             <div class="main">
                 <div class="hotel-preview">
-                    <img src="img/hotel-1.jpg" alt="hotel-1" class="hotel-preview__img">
-                    <img src="img/hotel-2.jpg" alt="hotel-2" class="hotel-preview__img">
-                    <img src="img/hotel-3.jpg" alt="hotel-3" class="hotel-preview__img">
+                    <figure class="hotel-preview__figure">
+                        <img src="img/hotel-1.jpg" alt="hotel-1" class="hotel-preview__img">
+                        <figcaption class="hotel-preview__caption">
+                            London
+                        </figcaption>
+                    </figure>
+                    <figure class="hotel-preview__figure">
+                        <img src="img/hotel-2.jpg" alt="hotel-2" class="hotel-preview__img">
+                        <figcaption class="hotel-preview__caption">
+                            Las Angles
+                        </figcaption>
+                    </figure>
+                    <figure class="hotel-preview__figure">
+                        <img src="img/hotel-3.jpg" alt="hotel-3" class="hotel-preview__img">
+                        <figcaption class="hotel-preview__caption">
+                            Berlin
+                        </figcaption>
+                    </figure>
                 </div>
                 <div class="hotel-info__primary">
                     <div class="hotel__title-box">
@@ -123,12 +138,120 @@
                         <svg class="hotel__local-icon">
                             <use xlink:href="img/sprite.svg#icon-location-pin"></use>
                         </svg>
-                        <div class="hotel__location">Albufeira, Portugal
-                        </div>
+                        <button class="hotel__location">Albufeira, Portugal
+                        </button>
                         <div class="hotel__vote">
                             <div class="hotel__vote--review">8.6</div>
                             <div class="hotel__vote--members">429 votes</div>
                         </div>
+                    </div>
+                </div>
+                <div class="hotel-details">
+                    <div class="details-info">
+                        <div class="details-description bottom-line">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nisi dignissimos debitis
+                                ratione
+                                sapiente saepe.
+                                Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate.
+                            </p>
+                            <p>Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate
+                                delectus,
+                                inventore iure aliquid
+                                aliquam.
+                            </p>
+                        </div>
+
+                        <ul class="details-properties-list bottom-line">
+                            <li class="properties-list__item">
+                                Close to the beach
+                            </li>
+                            <li class="properties-list__item">
+                                Breakfast included</li>
+                            <li class="properties-list__item">
+                                Free airport shuttle
+                            </li>
+                            <li class="properties-list__item">
+                                Free wifi in all rooms
+                            </li>
+                            <li class="properties-list__item">
+                                Air conditioning and heating
+                            </li>
+                            <li class="properties-list__item">
+                                Pets allowed
+                            </li>
+                            <li class="properties-list__item">
+                                We speak all languages
+                            </li>
+                            <li class="properties-list__item">Perfect for families</li>
+                        </ul>
+                        <div class="details-recommend">
+
+                            <div class="recommend-p">
+                                <p>Lucy and 3 other friends recommend this hotel.
+                                </p>
+                            </div>
+                            <div class="recommend-person">
+                                <img src="img/user-3.jpg" alt="user-3" class="recommend-profile">
+                                <img src="img/user-4.jpg" alt="user-4" class="recommend-profile">
+                                <img src="img/user-5.jpg" alt="user-5" class="recommend-profile">
+                                <img src="img/user-6.jpg" alt="user-6" class="recommend-profile">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-reviews">
+                        <div class="review-box">
+                            <div class="review-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto
+                                    dicta animi, totam, itaque officia
+                                    ex.</p>
+                            </div>
+                            <div class="owner-profile">
+                                <div class="owner-profile__avatar">
+                                    <img src="img/user-1.jpg" alt="avatar img">
+                                </div>
+                                <div class="owner-profile__details">
+                                    <div class="owner-profile__name">Nick Smith</div>
+                                    <div class="owner-profile__date">Feb 23rd, 2017
+                                    </div>
+                                </div>
+                                <div class="owner-profile__rating">
+                                    <span class="owner__rating-span">7.8</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-box">
+                            <div class="review-content">
+                                <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque
+                                    architecto
+                                    dicta animi.
+                                </blockquote>
+                            </div>
+                            <div class="owner-profile">
+                                <div class="owner-profile__avatar">
+                                    <img src="img/user-2.jpg" alt="avatar img">
+                                </div>
+                                <div class="owner-profile__details">
+                                    <div class="owner-profile__name">Mary Thomas</div>
+                                    <div class="owner-profile__date">Sept 13th, 2017
+                                    </div>
+                                </div>
+                                <div class="owner-profile__rating">
+                                    <span class="owner__rating-span">9.3</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-btn">
+                            <button class="btn review-button">Show all
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="details-booking">
+                        <h2 class="title__secondary">Good news! We have 4 free rooms for your selected dates!</h2>
+                        <button class="booking-button btn">
+                            <span class="first-part-btn">Book now</span>
+                            <span class="second-part-btn">Only 4 rooms left</span>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -133,6 +133,11 @@ body {
 .hotel-info__primary .hotel__loca-geo {
   display: flex;
   align-items: center; }
+  .hotel-info__primary .hotel__loca-geo .hotel__local-icon {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--color-primary);
+    margin-right: 0.5rem; }
 
 .hotel-info__primary .hotel__location {
   font-size: 1.2rem;
@@ -157,6 +162,13 @@ body {
   .hotel-info__primary .hotel__vote--members {
     font-size: 0.8rem;
     text-transform: uppercase; }
+
+.sidebar .copyrights {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding: 2.5rem;
+  color: var(--color-Grey-light-1); }
 
 body {
   background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary), var(--color-primary-dark));
@@ -190,10 +202,13 @@ body {
   display: flex; }
 
 .sidebar {
-  flex: 0 0 25rem;
+  flex: 0 0 18%;
   align-self: stretch;
   background-color: var(--color-Grey-dark-1);
-  color: white; }
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
 
 .main {
   flex-grow: 1;

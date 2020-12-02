@@ -147,6 +147,12 @@
   .hotel__loca-geo {
     display: flex;
     align-items: center;
+    .hotel__local-icon {
+      width: 2rem;
+      height: 2rem;
+      fill: var(--color-primary);
+      margin-right: 0.5rem;
+    }
   }
   .hotel__location {
     font-size: 1.2rem;
@@ -174,5 +180,15 @@
       font-size: 0.8rem;
       text-transform: uppercase;
     }
+  }
+}
+
+.sidebar {
+  .copyrights {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 2.5rem;
+    color: var(--color-Grey-light-1);
   }
 }

@@ -35,10 +35,13 @@ body {
   display: flex;
 }
 .sidebar {
-  flex: 0 0 25rem;
+  flex: 0 0 18%;
   align-self: stretch;
   background-color: var(--color-Grey-dark-1);
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .main {
   flex-grow: 1;

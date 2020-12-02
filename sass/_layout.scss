@@ -44,3 +44,18 @@ body {
   flex-grow: 1;
   align-self: stretch;
 }
+
+.hotel-preview {
+  display: flex;
+}
+
+.hotel-info__primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: var(--border-grey-light);
+}
+.hotel__title-icons {
+  display: flex;
+}

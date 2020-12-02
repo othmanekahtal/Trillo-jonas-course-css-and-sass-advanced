@@ -50,6 +50,9 @@ body {
 
 .hotel-preview {
   display: flex;
+  &__img {
+    width: calc(100% / 3);
+  }
 }
 
 .hotel-info__primary {
@@ -57,7 +60,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  box-shadow: var(--border-grey-light);
+  border-bottom: var(--border-grey-light);
 }
 .hotel__title-icons {
   display: flex;

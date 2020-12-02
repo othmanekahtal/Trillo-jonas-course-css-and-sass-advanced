@@ -21,23 +21,34 @@
                 </a>
             </div>
             <form class="search-box">
-                <input type="search" placeholder="search hotels" class="search__input">
+                <input type="text" placeholder="search hotels" class="search-box__input">
+                <button class="btn search-box__btn">
+                    <svg class="search-box__btn__icon">
+                        <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+                    </svg>
+                </button>
             </form>
-            <div class="user-icon-box">
-                <div class="icon-box__item">icon
-                    <span class="icon-box--notifications">7</span>
+            <nav class="user-nav">
+                <div class="icon-box__item">
+                    <svg class="icon-box__icon">
+                        <use xlink:href='img/sprite.svg#icon-chat'></use>
+                    </svg>
+                    <span class="icon-box__notifications">7</span>
                 </div>
-                <div class="icon-box__item">icon
-                    <span class="icon-box--notifications">13</span>
+                <div class="icon-box__item">
+                    <svg class="icon-box__icon">
+                        <use xlink:href='img/sprite.svg#icon-bookmark'></use>
+                    </svg>
+                    <span class="icon-box__notifications">13</span>
 
                 </div>
                 <div class="icon-box__item">
-                    <div class="icon-box--avatar">
+                    <div class="icon-box__avatar">
                         <img src="img/user.jpg" alt="user-avatar">
                     </div>
-                    <span class="icon-box--username">Jonas</span>
+                    <span class="icon-box__username">Jonas</span>
                 </div>
-            </div>
+            </nav>
         </header>
         <main class="content">
             <aside class="sidebar">

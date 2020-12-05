@@ -1,3 +1,33 @@
+////////////////////////////////////////////////
+///////////// SETTING MEDIA QUERIES:
+// phone:0-600px:37.5em
+// port-tab: 600px-900px :56.25em
+// land-tab:900px-1200px:75em
+// normal-desk: already styling
+// big-desk:+1800px:112.5em
+@mixin respond($breakpoint) {
+  @if ($breakpoint == "phone") {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == "port-tab") {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == "lan-tab") {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == "big-desk") {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
 *,
 *::after,
 *::before {
@@ -24,6 +54,22 @@
 }
 html {
   font-size: 62.5%;
+  @include respond(phone) {
+    // for mobile : font-size == 7.5px
+    font-size: 45%;
+  }
+  @include respond(port-tab) {
+    // for port-tab: font-size == 8.5px
+    font-size: 50.25%;
+  }
+  @include respond(lan-tab) {
+    // for lan-tab :font-size == 9px
+    font-size: 55%;
+  }
+  @include respond(big-desk) {
+    // for big desktop screen : font-size == 12px
+    font-size: 70%;
+  }
 }
 body {
   font-family: "Open Sans", sans-serif;

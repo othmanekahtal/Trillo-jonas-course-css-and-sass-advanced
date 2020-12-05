@@ -1,3 +1,4 @@
+@import "../sass/base";
 .btn {
   all: unset;
   cursor: pointer;
@@ -21,6 +22,9 @@
   img {
     height: 100%;
   }
+  @include respond(phone) {
+    order: 1;
+  }
 }
 
 /////////////SEARCH :
@@ -33,7 +37,14 @@
   display: flex;
   justify-content: center;
   align-self: center;
-
+  @include respond(phone) {
+    order: 3;
+    margin: 10px auto;
+    flex-basis: 80% !important;
+  }
+  @include respond(port-tab) {
+    flex: 0 0 50%;
+  }
   &__btn {
     // // you can do that with flexbox properties
     // position: absolute;
@@ -77,6 +88,9 @@
 /////////////NAVIGATOR :
 
 .user-nav {
+  @include respond(phone) {
+    order: 2;
+  }
   display: flex;
   align-items: center;
   .icon-box__item {
@@ -88,7 +102,6 @@
     padding: 2rem 1.5rem;
     position: relative;
     transition: all 0.25s ease;
-
     &:hover {
       background-color: var(--color-Grey-light-3);
     }
@@ -133,6 +146,9 @@
   .hotel__title-box {
     display: flex;
     align-items: center;
+    @include respond(phone) {
+      flex-basis: 100%;
+    }
   }
   .hotel__title {
     display: inline-block;
@@ -140,6 +156,9 @@
     font-size: 2.25rem;
     font-weight: 300;
     margin: 1.5rem 3rem;
+    @include respond(phone) {
+      margin: 2rem;
+    }
   }
   .title-icon,
   .hotel__local-icon {
@@ -148,14 +167,26 @@
     fill: var(--color-primary);
   }
 
+  .hotel__title-icons {
+    @include respond(phone) {
+      margin-right: 1rem;
+      margin-left: auto;
+    }
+  }
   .hotel__loca-geo {
     display: flex;
     align-items: center;
+    @include respond(phone) {
+      flex-basis: 100%;
+    }
     .hotel__local-icon {
       width: 2rem;
       height: 2rem;
       fill: var(--color-primary);
       margin-right: 0.5rem;
+      @include respond(phone) {
+        margin-left: 2.5rem;
+      }
     }
   }
   .hotel__vote {
@@ -164,6 +195,7 @@
     color: white;
     padding: 1.5rem;
     text-align: center;
+    margin-left: auto;
     &--review {
       font-size: 2.2rem;
       font-weight: 200;
@@ -230,7 +262,7 @@
       &:active::before {
         background-color: var(--color-primary-light);
       }
-      &:not(:last-of-type) {
+      &:not(:first-of-type) {
         margin-bottom: 5px;
       }
       &--colored {
@@ -260,6 +292,30 @@
     font-weight: 300;
     padding: 2.5rem;
     color: var(--color-Grey-light-4);
+  }
+  ///////////////////////////////////////
+  ///////////styling responsive side bar components:
+  @include respond(port-tab) {
+    &-nav {
+      margin-top: unset;
+      display: flex;
+      flex-wrap: wrap;
+      &__item {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        &:not(:first-of-type) {
+          margin-bottom: unset;
+        }
+      }
+    }
+    &-icon {
+      margin-right: 1rem;
+    }
+    .copyrights {
+      display: none;
+    }
   }
 }
 
@@ -316,6 +372,9 @@
       border-right: 4px solid white;
       border-bottom: 4px solid white;
     }
+    @include respond(port-tab) {
+      display: none;
+    }
   }
   &__img {
     width: 100%;
@@ -347,6 +406,10 @@
   border-bottom: 1px solid var(--color-Grey-light-2);
   padding-bottom: 3rem;
   margin-bottom: 3rem;
+  @include respond(port-tab) {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 .details-info,
 .review-box {
@@ -355,6 +418,9 @@
 .details-description {
   p:not(:last-of-type) {
     padding-bottom: 2rem;
+    @include respond(port-tab) {
+      padding-bottom: 1rem;
+    }
   }
 }
 .hotel-details {
@@ -364,12 +430,17 @@
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: center;
-
+  @include respond(phone) {
+    flex-direction: column;
+  }
   .details-info {
     padding: 3rem;
     flex: 0 0 60%;
     box-shadow: var(--light-shadow);
-
+    @include respond(phone) {
+      flex: 0 0 100%;
+      margin-bottom: 3rem;
+    }
     .details-properties-list {
       list-style-type: none;
       display: flex;
@@ -378,6 +449,9 @@
       .properties-list__item {
         flex: 0 0 50%;
         margin-bottom: 1rem;
+        @include respond(phone) {
+          flex: 0 0 100%;
+        }
         &::before {
           content: "";
           display: inline-block;
@@ -413,8 +487,15 @@
         border-radius: 50%;
         box-sizing: content-box;
         border: 3px solid white;
+        @include respond(phone) {
+          width: 3rem;
+          height: 3rem;
+        }
         &:not(:last-of-type) {
           margin-right: -2.5rem;
+          @include respond(phone) {
+            margin-right: unset;
+          }
         }
       }
     }
@@ -425,6 +506,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include respond(phone) {
+      padding-left: 0 !important;
+    }
     .review-box {
       overflow: hidden;
       padding: 3rem;
@@ -493,65 +577,110 @@
       }
     }
   }
-}
+  @include respond(port-tab) {
+    padding: 3rem;
+    .details-reviews {
+      padding-left: 3rem;
+      .review-box {
+        padding: 2rem;
+        margin-bottom: 3rem;
+      }
+    }
+    .properties-list__item {
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+    }
+  }
 
-////////////////////////////////////////////////
-/////////////END STYLING HOTEL DETAILS :
+  ////////////////////////////////////////////////
+  /////////////END STYLING HOTEL DETAILS :
 
-////////////////////////////////////////////////
-/////////////START STYLING BOOKING PART :
+  ////////////////////////////////////////////////
+  /////////////START STYLING BOOKING PART :
 
-.details-booking {
-  text-align: center;
-  padding: 3rem;
-}
-.booking-button {
-  background-image: linear-gradient(
-    to right,
-    var(--color-primary-light),
-    var(--color-primary-dark)
-  );
-  position: relative;
-  border-radius: 5rem;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  color: white;
-  display: inline-block;
-  overflow: hidden;
-  transition: all 0.25s;
-
-  &:hover {
+  .details-booking {
+    text-align: center;
+    padding: 3rem;
+    @include respond(phone) {
+      padding: unset;
+      padding: 8rem 0;
+    }
+  }
+  .booking-button {
     background-image: linear-gradient(
       to right,
-      var(--color-primary-dark),
-      var(--color-primary-light)
+      var(--color-primary-light),
+      var(--color-primary-dark)
     );
-    .first-part-btn {
-      transform: translateY(100%);
-    }
-    .second-part-btn {
-      top: 0;
-    }
-  }
-  &:focus {
-    animation: move-up-down 1.25s infinite 0.25s;
-  }
-  & > span {
+    position: relative;
+    border-radius: 5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: white;
     display: inline-block;
-    height: 100%;
-    width: 100%;
+    overflow: hidden;
     transition: all 0.25s;
+    @include respond(phone) {
+      margin-top: 2rem;
+    }
+    @include respond(port-tab) {
+      position: unset;
+      transition: unset;
+      padding: 2rem 3rem !important;
+    }
+    &:hover {
+      background-image: linear-gradient(
+        to right,
+        var(--color-primary-dark),
+        var(--color-primary-light)
+      );
+      @include respond(port-tab) {
+        background-image: linear-gradient(
+          to right,
+          var(--color-primary-light),
+          var(--color-primary-dark)
+        );
+      }
+      .first-part-btn {
+        transform: translateY(100%);
+        @include respond(port-tab) {
+          transform: unset;
+        }
+      }
+      .second-part-btn {
+        top: 0;
+      }
+    }
+    &:focus {
+      animation: move-up-down 1.25s infinite 0.25s;
+    }
+    & > span {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      transition: all 0.25s;
+      @include respond(port-tab) {
+        display: inline;
+      }
+    }
   }
-}
-.first-part-btn {
-  padding: 1.75rem 7.5rem;
-}
-.second-part-btn {
-  padding: 1.75rem 0;
-  position: absolute;
-  top: -100%;
-  left: 0;
+  .first-part-btn {
+    padding: 1.75rem 7.5rem;
+    @include respond(port-tab) {
+      padding: unset;
+    }
+  }
+  .second-part-btn {
+    padding: 1.75rem 0;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    @include respond(port-tab) {
+      position: unset;
+      padding: unset;
+    }
+  }
 }
 
 ////////////////////////////////////////////////
-/////////////END STYLING BOOKING PART :
+/////////////END STYLING BOOKING PART

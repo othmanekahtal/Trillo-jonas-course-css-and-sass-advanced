@@ -1,3 +1,4 @@
+@import "../sass/base";
 body {
   background-image: linear-gradient(
     to right bottom,
@@ -19,6 +20,11 @@ body {
   box-shadow: var(--dark-shadow);
   background-color: var(--color-Grey-light-1);
   overflow: hidden;
+  @include respond(lan-tab) {
+    max-width: unset;
+    margin: 0;
+    height: 100%;
+  }
 }
 .header {
   width: 100%;
@@ -31,9 +37,15 @@ body {
   border-bottom: var(--border-grey-light);
   font-family: inherit;
   font-size: 1.4rem;
+  @include respond(phone) {
+    flex-wrap: wrap;
+  }
 }
 .content {
   display: flex;
+  @include respond(port-tab) {
+    flex-direction: column;
+  }
 }
 .sidebar {
   flex: 0 0 18%;
@@ -51,6 +63,9 @@ body {
 
 .hotel-preview {
   display: flex;
+  @include respond(phone) {
+    display: block;
+  }
 }
 
 .hotel-info__primary {
@@ -59,6 +74,9 @@ body {
   justify-content: space-between;
   background-color: white;
   border-bottom: var(--border-grey-light);
+  @include respond(phone) {
+    flex-wrap: wrap;
+  }
 }
 .hotel__title-icons {
   display: flex;

@@ -282,7 +282,19 @@ body {
     box-shadow: none; }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 0 2.5rem rgba(51, 51, 51, 0.5); } }
+    box-shadow: 0 1rem 2rem rgba(51, 51, 51, 0.4); } }
+
+.bottom-line {
+  border-bottom: 1px solid var(--color-Grey-light-2);
+  padding-bottom: 3rem;
+  margin-bottom: 3rem; }
+
+.details-info,
+.review-box {
+  background-color: white; }
+
+.details-description p:not(:last-of-type) {
+  padding-bottom: 2rem; }
 
 .hotel-details {
   padding: 5rem;
@@ -291,19 +303,10 @@ body {
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: center; }
-  .hotel-details .bottom-line {
-    border-bottom: 1px solid var(--color-Grey-light-2);
-    padding-bottom: 3rem;
-    margin-bottom: 3rem; }
-  .hotel-details .details-info,
-  .hotel-details .review-box {
-    background-color: white; }
   .hotel-details .details-info {
     padding: 3rem;
     flex: 0 0 60%;
     box-shadow: var(--light-shadow); }
-    .hotel-details .details-info .details-description p:not(:last-of-type) {
-      padding-bottom: 2rem; }
     .hotel-details .details-info .details-properties-list {
       list-style-type: none;
       display: flex;
@@ -318,18 +321,21 @@ body {
           width: 1rem;
           height: 1rem;
           margin-right: 0.5rem;
+          background-color: var(--color-primary);
           -webkit-mask-image: url("../img/SVG/chevron-thin-right.svg");
           -webkit-mask-size: cover;
-          background-color: var(--color-primary);
           mask-image: url("../img/SVG/chevron-thin-right.svg");
           mask-size: cover; }
+          @supports not ((-webkit-mask-image: url()) or (-webkit-mask-size: cover) or (mask-image: url("../img/SVG/chevron-thin-right.svg")) or (mask-size: cover)) {
+            .hotel-details .details-info .details-properties-list .properties-list__item::before {
+              background-color: transparent;
+              background-image: url("../img/SVG/chevron-thin-right.svg");
+              background-size: cover; } }
     .hotel-details .details-info .details-recommend {
       display: flex;
       font-size: 1.2rem;
       justify-content: space-between;
       align-items: center; }
-      .hotel-details .details-info .details-recommend .recommend-p {
-        font-size: inherit; }
       .hotel-details .details-info .details-recommend .recommend-profile {
         width: 4rem;
         height: 4rem;
@@ -345,11 +351,25 @@ body {
     flex-direction: column;
     align-items: center; }
     .hotel-details .details-reviews .review-box {
+      overflow: hidden;
       padding: 3rem;
       margin-bottom: 4rem;
-      box-shadow: var(--light-shadow); }
+      box-shadow: var(--light-shadow);
+      position: relative; }
       .hotel-details .details-reviews .review-box .review-content {
+        position: relative;
+        z-index: 1;
         padding-bottom: 2.5rem; }
+      .hotel-details .details-reviews .review-box::before {
+        font-family: sans-serif;
+        content: "\201C";
+        color: var(--color-Grey-light-2);
+        position: absolute;
+        top: -12rem;
+        left: -2.5rem;
+        font-size: 25rem;
+        z-index: 0;
+        font-weight: 600; }
     .hotel-details .details-reviews .owner-profile {
       display: flex;
       justify-content: space-between;
@@ -376,32 +396,51 @@ body {
       .hotel-details .details-reviews .owner-profile__date {
         font-size: 1rem;
         color: var(--color-grey-dark-3); }
+    .hotel-details .details-reviews .review-button {
+      text-align: center; }
+      .hotel-details .details-reviews .review-button span {
+        display: inline-block;
+        margin-left: 0.5rem;
+        transition: margin 0.2s; }
+      .hotel-details .details-reviews .review-button:hover span {
+        margin-left: 1rem; }
 
 .details-booking {
   text-align: center;
   padding: 3rem; }
-  .details-booking .booking-button {
-    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
-    position: relative;
-    padding: 1.5rem 4.5rem;
-    border-radius: 5rem;
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    color: white;
-    display: inline-block; }
-    .details-booking .booking-button .first-part-btn {
-      display: inline-block; }
-    .details-booking .booking-button .second-part-btn {
-      display: block; }
 
-.review-button {
-  text-align: center; }
-  .review-button span {
+.booking-button {
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  position: relative;
+  border-radius: 5rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: white;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.25s; }
+  .booking-button:hover {
+    background-image: linear-gradient(to right, var(--color-primary-dark), var(--color-primary-light)); }
+    .booking-button:hover .first-part-btn {
+      transform: translateY(100%); }
+    .booking-button:hover .second-part-btn {
+      top: 0; }
+  .booking-button:focus {
+    animation: move-up-down 1.25s infinite 0.25s; }
+  .booking-button > span {
     display: inline-block;
-    margin-left: 0.5rem;
-    transition: margin 0.2s; }
-  .review-button:hover span {
-    margin-left: 1rem; }
+    height: 100%;
+    width: 100%;
+    transition: all 0.25s; }
+
+.first-part-btn {
+  padding: 1.75rem 7.5rem; }
+
+.second-part-btn {
+  padding: 1.75rem 0;
+  position: absolute;
+  top: -100%;
+  left: 0; }
 
 body {
   background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary), var(--color-primary-dark));

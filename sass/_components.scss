@@ -30,7 +30,6 @@
   flex-shrink: 0;
   flex-shrink: 0;
   text-align: center;
-  // position: relative;
   display: flex;
   justify-content: center;
   align-self: center;
@@ -252,7 +251,6 @@
   &-icon {
     width: 1.75rem;
     height: 1.75rem;
-    // fill: var(--color-Grey-light-1);
     fill: currentColor;
     margin-right: 2rem;
   }
@@ -270,6 +268,7 @@
 
 ////////////////////////////////////////////////
 /////////////START STYLING NAV :
+
 .hotel-preview {
   &__figure {
     position: relative;
@@ -325,7 +324,11 @@
 }
 
 ////////////////////////////////////////////////
+/////////////END STYLING NAV :
+
+////////////////////////////////////////////////
 /////////////ANIMATION:
+
 @keyframes move-up-down {
   0%,
   100% {
@@ -334,11 +337,26 @@
   }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 0 2.5rem rgba(#333, 0.5);
+    box-shadow: 0 1rem 2rem rgba(#333, 0.4);
   }
 }
 ////////////////////////////////////////////////
 /////////////START STYLING HOTEL DETAILS :
+
+.bottom-line {
+  border-bottom: 1px solid var(--color-Grey-light-2);
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+}
+.details-info,
+.review-box {
+  background-color: white;
+}
+.details-description {
+  p:not(:last-of-type) {
+    padding-bottom: 2rem;
+  }
+}
 .hotel-details {
   padding: 5rem;
   font-size: 1.4rem;
@@ -346,25 +364,12 @@
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: center;
-  .bottom-line {
-    border-bottom: 1px solid var(--color-Grey-light-2);
-    padding-bottom: 3rem;
-    margin-bottom: 3rem;
-  }
-  .details-info,
-  .review-box {
-    background-color: white;
-  }
+
   .details-info {
     padding: 3rem;
     flex: 0 0 60%;
     box-shadow: var(--light-shadow);
 
-    .details-description {
-      p:not(:last-of-type) {
-        padding-bottom: 2rem;
-      }
-    }
     .details-properties-list {
       list-style-type: none;
       display: flex;
@@ -379,11 +384,21 @@
           width: 1rem;
           height: 1rem;
           margin-right: 0.5rem;
+          background-color: var(--color-primary);
           -webkit-mask-image: url("../img/SVG/chevron-thin-right.svg");
           -webkit-mask-size: cover;
-          background-color: var(--color-primary);
           mask-image: url("../img/SVG/chevron-thin-right.svg");
           mask-size: cover;
+
+          @supports not (
+            (-webkit-mask-image: url()) or (-webkit-mask-size: cover) or
+              (mask-image: url("../img/SVG/chevron-thin-right.svg")) or
+              (mask-size: cover)
+          ) {
+            background-color: transparent;
+            background-image: url("../img/SVG/chevron-thin-right.svg");
+            background-size: cover;
+          }
         }
       }
     }
@@ -392,9 +407,6 @@
       font-size: 1.2rem;
       justify-content: space-between;
       align-items: center;
-      .recommend-p {
-        font-size: inherit;
-      }
       .recommend-profile {
         width: 4rem;
         height: 4rem;
@@ -412,15 +424,28 @@
     padding-left: 4rem;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // justify-content: space-between;
     align-items: center;
     .review-box {
+      overflow: hidden;
       padding: 3rem;
       margin-bottom: 4rem;
       box-shadow: var(--light-shadow);
+      position: relative;
       .review-content {
+        position: relative;
+        z-index: 1;
         padding-bottom: 2.5rem;
+      }
+      &::before {
+        font-family: sans-serif;
+        content: "\201C";
+        color: var(--color-Grey-light-2);
+        position: absolute;
+        top: -12rem;
+        left: -2.5rem;
+        font-size: 25rem;
+        z-index: 0;
+        font-weight: 600;
       }
     }
     .owner-profile {
@@ -456,42 +481,77 @@
         color: var(--color-grey-dark-3);
       }
     }
+    .review-button {
+      text-align: center;
+      span {
+        display: inline-block;
+        margin-left: 0.5rem;
+        transition: margin 0.2s;
+      }
+      &:hover span {
+        margin-left: 1rem;
+      }
+    }
   }
 }
+
+////////////////////////////////////////////////
+/////////////END STYLING HOTEL DETAILS :
+
+////////////////////////////////////////////////
+/////////////START STYLING BOOKING PART :
 
 .details-booking {
   text-align: center;
   padding: 3rem;
-  .booking-button {
+}
+.booking-button {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  position: relative;
+  border-radius: 5rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: white;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.25s;
+
+  &:hover {
     background-image: linear-gradient(
       to right,
-      var(--color-primary-light),
-      var(--color-primary-dark)
+      var(--color-primary-dark),
+      var(--color-primary-light)
     );
-    position: relative;
-    padding: 1.5rem 4.5rem;
-    border-radius: 5rem;
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    color: white;
-    display: inline-block;
     .first-part-btn {
-      display: inline-block;
+      transform: translateY(100%);
     }
     .second-part-btn {
-      display: block;
+      top: 0;
     }
   }
+  &:focus {
+    animation: move-up-down 1.25s infinite 0.25s;
+  }
+  & > span {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all 0.25s;
+  }
+}
+.first-part-btn {
+  padding: 1.75rem 7.5rem;
+}
+.second-part-btn {
+  padding: 1.75rem 0;
+  position: absolute;
+  top: -100%;
+  left: 0;
 }
 
-.review-button {
-  text-align: center;
-  span {
-    display: inline-block;
-    margin-left: 0.5rem;
-    transition: margin 0.2s;
-  }
-  &:hover span {
-    margin-left: 1rem;
-  }
-}
+////////////////////////////////////////////////
+/////////////END STYLING BOOKING PART :
